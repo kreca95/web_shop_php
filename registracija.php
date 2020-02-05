@@ -2,6 +2,7 @@
     require ('baza.php');
     require('nav.php');
 ?>
+<!-- forma za registraciju -->
 <div class="container">
 	<h2>Registracija</h2>
 	<form action="registracijaPost.php" method="post">

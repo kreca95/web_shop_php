@@ -1,6 +1,7 @@
 <?php
     require('nav.php')    
 ?>
+<!-- forma za unos mobitela -->
 <form action="dodajmobitel.php" method="post" enctype="multipart/form-data">
 <div class="container">
 

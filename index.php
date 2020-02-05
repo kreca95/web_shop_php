@@ -32,7 +32,7 @@ height: 300px; /* only if you want fixed height */
 			
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-		
+		// ispisivanje proizvoda
 		echo ('
 			  <div class="col-sm-3">
     		<div class="thumbnail">
@@ -58,6 +58,7 @@ if ($result->num_rows > 0) {
                     Korpa
                     <span class="sc-cart-count badge">
 					<?php
+						// broj proizvoda koji se nalazi u kosari
 						$brojac="SELECT COUNT(*) as brojac FROM kosara as k INNER JOIN kosaraproizvod as kp on kp.Kosara_ID=k.ID INNER JOIN proizvod as p on p.ID=kp.Proizvod_ID WHERE k.KupnjaZavrsena=0 and  k.ID=".$_SESSION["idKorpe"];
 						$resultBrojac=$con->query($brojac);
 						$rowBrojac = $resultBrojac->fetch_assoc();
@@ -82,6 +83,7 @@ if ($result->num_rows > 0) {
                                     <td class="izbrisi"><span class="glyphicon glyphicon-remove"></span></td> -->
 									<?php 
 									if(isset($_SESSION["idKorpe"]) && isset($_SESSION["ID"]) ){
+										// ispisuje proizvode u korpi trenutnog korisnika 
 										$kosara="SELECT k.ID_User as uid, k.ID as kosaraId,p.ID,p.Cijena as cijena,p.Ime as ime FROM kosara as k INNER JOIN kosaraproizvod as kp on kp.Kosara_ID=k.ID INNER JOIN proizvod as p on p.ID=kp.Proizvod_ID WHERE k.KupnjaZavrsena=0 and k.ID=".$_SESSION["idKorpe"]." and k.ID_User=".$_SESSION["ID"];
 										$resultKosara = $con->query($kosara);
 										    while($rowKosara = $resultKosara->fetch_assoc()) {
@@ -109,6 +111,7 @@ if ($result->num_rows > 0) {
                         <div class="sc-cart-summary-subtotal">
                             Ukupno:
 							<?php
+							// suma svih proizvoda iz kosare
 							$suma="SELECT SUM(p.Cijena) as sumaa FROM kosara as k INNER JOIN kosaraproizvod as kp on kp.Kosara_ID=k.ID INNER JOIN proizvod as p on p.ID=kp.Proizvod_ID WHERE k.KupnjaZavrsena=0 and  k.ID=".$_SESSION["idKorpe"];
 							$resultSuma=$con->query($suma);
 							$rowSuma=$resultSuma->fetch_assoc();

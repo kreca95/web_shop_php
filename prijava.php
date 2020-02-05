@@ -3,7 +3,7 @@
     require('nav.php');
 ?>
 
-
+<!-- forma za prijavu -->
 <div class="container">
 	<h2>Registracija</h2>
 	<form action="prijavaPost.php" method="post">

@@ -1,6 +1,7 @@
 <?php
     require("baza.php");
     session_start();
+    // zavrsavanje kupnje
     if(isset($_SESSION["idKorpe"]))
     {
     

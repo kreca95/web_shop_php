@@ -17,7 +17,8 @@
     </thead>
     <tbody>
     <?php
-     $sql="SELECT * FROM kosara as k WHERE k.KupnjaZavrsena=1 and k.ID_User=".$id." ORDER BY k.Datum";
+    // zavrsene kupnje trenutnog korisnika
+    $sql="SELECT * FROM kosara as k WHERE k.KupnjaZavrsena=1 and k.ID_User=".$id." ORDER BY k.Datum";
     $result = $con->query($sql);
 
     while($row = $result->fetch_assoc()) {

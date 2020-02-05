@@ -1,5 +1,6 @@
 
 <?php
+//upload slike
     $slika= $_FILES["file"]["name"];
      $target_dir = "uploads/";
 $target_file = $target_dir . basename($slika);
@@ -24,7 +25,7 @@ if(isset($_POST["submit"])) {
 
     $ime=$_POST["ime"];
     $cijena=$_POST["cijena"];
-
+    //query za insert proizvoda
     $sql="INSERT INTO proizvod (Ime,Cijena,Slika) VALUES ("."'".$ime."'".",".$cijena.","."'".$slika."'".")";
     $result = $con->query($sql);
 

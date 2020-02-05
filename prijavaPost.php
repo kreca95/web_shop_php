@@ -1,10 +1,13 @@
 <?php
 require("baza.php");
 session_start();
+// provjera je li korisnik vec prijavljen
 if(isset($_SESSION["email"]))
 {
     header('Location: index.php');
 }
+
+//provjera je li korisnik unio email i sifru kroz formu
 if(isset($_POST["email"]) && isset($_POST["sifra"]))
     {
         $email=$_POST["email"];
@@ -26,6 +29,7 @@ if(isset($_POST["email"]) && isset($_POST["sifra"]))
         $brojac = $row['brojac'];
         if($brojac > 0){
             $_SESSION['email'] = $email;
+            // ako postoji korisnik sa unesenim podacima, dodjeli mu se sesija
             echo($_SESSION["email"]);
             header('Location: index.php');
         }else{

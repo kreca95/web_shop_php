@@ -1,7 +1,7 @@
 <?php
     require ('baza.php');
     require('nav.php');
-
+    //brisanje proizvoda
     $id=$_GET["id"];
     $sql="DELETE FROM proizvod WHERE id=".$id;
     $result = $con->query($sql);

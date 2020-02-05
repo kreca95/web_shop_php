@@ -5,6 +5,7 @@
 
     if (isset($id)) 
     {
+        // dohvacanje proizvoda 
         $sql="select * from proizvod where ID=".$id;
         $result = $con->query($sql);
 
@@ -13,17 +14,14 @@
         while($row = $result->fetch_assoc()) {
             $ime=$row["Ime"];
             $cijena=$row["Cijena"];
-
             }
-
-            
         }
     else
     {
         echo("greska");
     }
 ?>
-
+<!-- forma se ispuni dohvacenim proizvodom -->
 <div class="container">
   <h2>Uredite proizvod</h2>
   <form action="urediPost.php" method="post">
